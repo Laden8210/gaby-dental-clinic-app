@@ -2,11 +2,8 @@ package com.example.gabaydentalclinic.view;
 
 import android.os.Bundle;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
 
@@ -20,12 +17,12 @@ public class HeroActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hero);
 
-
         BottomNavigationView bnvHero = findViewById(R.id.bnvHero);
-        NavHostFragment nvfHero = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nfvHero);
-        if(nvfHero != null){
+        Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.nfvHero);
+
+        if (fragment instanceof NavHostFragment) {
+            NavHostFragment nvfHero = (NavHostFragment) fragment;
             NavigationUI.setupWithNavController(bnvHero, nvfHero.getNavController());
         }
-
     }
 }

@@ -13,10 +13,20 @@
         android:theme="@style/Theme.GabayDentalClinic"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".view.AppointmentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.RegisterActivity"
+            android:exported="false"
+            android:theme="@style/Theme.GabayDentalClinic" />
+        <activity
+            android:name=".view.CreateAppointmentActivity"
             android:exported="false" />
         <activity
             android:name=".view.HeroActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
