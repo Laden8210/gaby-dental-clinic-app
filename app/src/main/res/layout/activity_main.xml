@@ -43,9 +43,10 @@
             android:textSize="12sp" />
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tEmailPhone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter email or username"
+            android:hint="Enter email or phone number"
             android:layout_marginBottom="4dp"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
             <com.google.android.material.textfield.TextInputEditText
@@ -54,6 +55,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Enter password"

@@ -5,15 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="8dp"
+    android:padding="4dp"
     android:background="#F5F5F5">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        app:cardElevation="4dp"
-        app:cardCornerRadius="16dp"
+        android:layout_marginBottom="12dp"
+        app:cardElevation="6dp"
+        app:cardCornerRadius="12dp"
         app:cardBackgroundColor="#FFFFFF">
 
         <LinearLayout
@@ -22,78 +22,89 @@
             android:orientation="vertical"
             android:padding="16dp">
 
-            <!-- Service Info Section -->
+            <!-- Header Section (Date, Time, and Action Icon) -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
-                android:layout_marginBottom="8dp">
+                android:layout_marginBottom="12dp">
 
-                <!-- Icon for the service -->
+                <!-- Service Icon -->
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:src="@drawable/baseline_medical_services_24"
                     android:contentDescription="Service Icon"
                     android:layout_marginEnd="12dp"
-                    android:tint="#4CAF50" />
+                    app:tint="#4CAF50" />
 
+                <!-- Date & Time -->
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:layout_weight="1">
 
-                    <!-- Service Name -->
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Service Name"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:textColor="#212121"
-                        android:fontFamily="@font/poppinsbold" />
-
-                    <!-- Date and time -->
-                    <TextView
+                        android:id="@+id/tvDateTime"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="2024-07-03 - 10:00 PM"
-                        android:textSize="14sp"
-                        android:textColor="#757575"
-                        android:fontFamily="@font/poppinsmediumitalic" />
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="#212121"
+                        android:fontFamily="@font/poppinsbold" />
                 </LinearLayout>
 
-                <!-- Action Icon -->
+                <!-- View Icon -->
                 <ImageView
                     android:id="@+id/ivAction"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
                     android:src="@drawable/baseline_remove_red_eye_24"
-                    android:contentDescription="Edit Icon"
-                    android:tint="#757575" />
+                    android:contentDescription="View Details"
+                    app:tint="#757575" />
             </LinearLayout>
 
-            <!-- Total Payment Section -->
+            <!-- Service Information -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Service Availed"
+                android:textSize="16sp"
+                android:textColor="#212121"
+                android:fontFamily="@font/poppinsmedium"
+                android:layout_marginBottom="8dp" />
+
+            <!-- Service Name -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/llService">
+            </LinearLayout>
+
+
+            <!-- Payment Section -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:paddingTop="4dp">
 
-                android:paddingTop="8dp">
-
-                <!-- Total Payment Label -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Total Payment:"
                     android:textSize="16sp"
                     android:textColor="#212121"
-                    android:fontFamily="@font/poppinsmedium" />
+                    android:fontFamily="@font/poppinsmedium"
+                    android:layout_marginEnd="8dp" />
 
-                <!-- Payment Amount -->
                 <TextView
+                    android:id="@+id/tvTotalPayment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="$100.00"
@@ -108,20 +119,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:paddingTop="4dp">
 
-                android:paddingTop="8dp">
-
-                <!-- Status Label -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Status:"
                     android:textSize="16sp"
                     android:textColor="#212121"
-                    android:fontFamily="@font/poppinsmedium" />
+                    android:fontFamily="@font/poppinsmedium"
+                    android:layout_marginEnd="8dp" />
 
-                <!-- Status Value -->
                 <TextView
+                    android:id="@+id/tvStatus"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Confirmed"
@@ -130,6 +140,23 @@
                     android:textColor="#4CAF50"
                     android:fontFamily="@font/poppinsbold" />
             </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Note"
+                android:textSize="16sp"
+                android:textColor="#212121"
+                android:fontFamily="@font/poppinsmedium"
+                android:layout_marginEnd="8dp" />
+
+            <TextView
+                android:id="@+id/tvNote"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Confirmed"
+                android:textSize="14sp"
+                android:fontFamily="@font/poppinsitalic" />
+
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 

@@ -46,5 +46,11 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
-    implementation("androidx.compose.ui:ui-text-google-fonts:1.7.6")
+    implementation(libs.ui.text.google.fonts)
+    implementation (libs.retrofit)
+    implementation (libs.converter.gson)
+    implementation (libs.okhttp)
+    implementation ("com.squareup.okhttp3:logging-interceptor:4.9.3")
+    implementation("androidx.biometric:biometric:1.2.0-alpha05")
+
 }

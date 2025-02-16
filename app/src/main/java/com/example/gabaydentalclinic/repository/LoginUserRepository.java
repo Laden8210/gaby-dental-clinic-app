@@ -1,0 +1,21 @@
+package com.example.gabaydentalclinic.repository;
+
+import com.example.gabaydentalclinic.config.ApiAddress;
+
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
+public class LoginUserRepository {
+
+    private static Retrofit retrofit;
+
+    public static Retrofit getClient() {
+        if (retrofit == null) {
+            retrofit = new Retrofit.Builder()
+                    .baseUrl(ApiAddress.API_ADDRESS)
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+        }
+        return retrofit;
+    }
+}
