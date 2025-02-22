@@ -37,10 +37,10 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        if (SessionManager.getInstance(this).getUserId() != null) {
-            startActivity(new Intent(MainActivity.this, HeroActivity.class));
-            finish();
-        }
+//        if (SessionManager.getInstance(this).getUserId() != null) {
+//            startActivity(new Intent(MainActivity.this, HeroActivity.class));
+//            finish();
+//        }
 
         apiService = LoginUserRepository.getClient().create(ILoginUserService.class);
 
@@ -81,7 +81,8 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 if ("success".equals(loginResponse.getStatus())) {
-                    sessionManager.saveUserId(loginResponse.getUserId());
+
+                    SessionManager.getInstance(MainActivity.this).saveUserId(loginResponse.getUserId());
                     startActivity(new Intent(MainActivity.this, HeroActivity.class));
                     finish();
                 } else {

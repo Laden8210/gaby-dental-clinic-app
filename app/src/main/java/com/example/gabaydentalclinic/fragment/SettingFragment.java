@@ -13,11 +13,13 @@ import android.widget.Switch;
 import com.example.gabaydentalclinic.R;
 import com.example.gabaydentalclinic.util.Messenger;
 import com.example.gabaydentalclinic.util.SessionManager;
+import com.google.android.material.button.MaterialButton;
 
 
 public class SettingFragment extends Fragment {
 
 
+    private MaterialButton btnLogout, btnChangePassword, btnEditProfile;
 
     private Switch switchLockScreen;
     @Override
@@ -35,6 +37,14 @@ public class SettingFragment extends Fragment {
         switchLockScreen = view.findViewById(R.id.switchLockScreen);
 
 
+        btnChangePassword = view.findViewById(R.id.btnChangePassword);
+        btnEditProfile = view.findViewById(R.id.btnEditProfile);
+        btnLogout = view.findViewById(R.id.btnLogout);
+
+        btnChangePassword.setOnClickListener(this::changePassword);
+        btnLogout.setOnClickListener(this::logoutAction);
+        btnEditProfile.setOnClickListener(this::changeProfileAction);
+
         switchLockScreen.setChecked(SessionManager.getInstance(getContext()).isLockEnabled());
 
         switchLockScreen.setOnCheckedChangeListener((buttonView, isChecked) -> {
@@ -48,9 +58,28 @@ public class SettingFragment extends Fragment {
                             switchLockScreen.setChecked(false);
                         }).show();
             } else {
-                SessionManager.getInstance(getContext()).setLockEnabled(false);
+                Messenger.showAlertDialog(getContext(), "Lock Screen", "Do you want to disable the lockscreen?",
+                        "Yes", "No",
+                        (dialog, which) -> {
+                            SessionManager.getInstance(getContext()).setLockEnabled(false);
+                        },
+                        (dialog, which) -> {
+                            switchLockScreen.setChecked(true);
+                        }).show();
             }
         });
         return view;
+    }
+
+    private void changeProfileAction(View view) {
+
+
+    }
+
+    private void logoutAction(View view) {
+        
+    }
+
+    private void changePassword(View view) {
     }
 }

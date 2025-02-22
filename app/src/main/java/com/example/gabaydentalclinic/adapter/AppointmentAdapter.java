@@ -56,7 +56,12 @@ public class AppointmentAdapter extends RecyclerView.Adapter<AppointmentAdapter.
         makeServiceList(holder, services);
 
         holder.ivAppointment.setOnClickListener(v -> {
-            context.startActivity(new Intent(context, AppointmentActivity.class));
+
+            Intent intent = new Intent(context, AppointmentActivity.class);
+
+            intent.putExtra("appointment", appointment);
+
+            context.startActivity(intent);
         });
 
         holder.tvTotalPayment.setText("Total Payment: ₱" + getTotalPayment(services));
